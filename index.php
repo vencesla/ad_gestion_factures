@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary btn-sm me-3"><i class="fas fa-folder-plus">Nouveau</i></button>
+                    <button class="btn btn-primary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fas fa-folder-plus">Nouveau</i></button>
                     <a href="" class="btn btn-success btn-sm"><i class="fas fa-table">Exporter</i></a>
                 </div>
             </div>
@@ -84,6 +84,57 @@
             </div>
         </div>
     </section>
+    <!-- Modal create -->
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="createModalLabel">Nouvelle facture</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" id="formOrder">
+                <div class="form-floating mb-3">
+                    <input type="text" name="customer" id="customer" class="form-control">
+                    <label for="customer">Nom du client</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="cashier" id="cashier" class="form-control">
+                    <label for="cashier">Nom du caissier</label>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="amount" name="amount">
+                            <label for="amount">Montant</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="received" name="received">
+                            <label for="received">Montant perçu</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                           <select class="form-control" name="state" id="state" aria-label="state">
+                                <option value="Facturée">Facturée</option>
+                                <option value="Payée">Payée</option>
+                                <option value="Annulée">Annulée</option>
+                           </select>
+                           <label for="state">Etat</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-primary" id="create" name="create">Ajoouter <i class="fas fa-plus"></i></button>
+        </div>
+        </div>
+    </div>
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
