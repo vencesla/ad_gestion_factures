@@ -28,4 +28,19 @@ class Database {
             'state' =>$state
         ]);
     }
+
+    public function read() {
+        return $this->getConnection()->query("SELECT * FROM factures ORDER BY id")
+                ->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function countBills():int {
+        return (int)$this->getConnection()->query("SELECT COUNT(id) as count FROM factures")->fetch()[0];
+    }
+
+    public function getSingleBill(int $id){
+        $q = $this->getConnection()->prepare("SELECT * FROM factures WHERE id=:id");
+        $q->execute(['id' => $id]);
+        return $q->fetch(PDO::FETCH_OBJ);
+    }
 }

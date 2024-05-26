@@ -43,44 +43,15 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fas fa-folder-plus">Nouveau</i></button>
-                    <a href="" class="btn btn-success btn-sm"><i class="fas fa-table">Exporter</i></a>
+                    <button class="btn btn-primary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fas fa-folder-plus"></i> Nouveau</button>
+                    <a href="" class="btn btn-success btn-sm"><i class="fas fa-table"></i> Exporter</a>
                 </div>
             </div>
         </div>
         <div class="dropdown-divider border-warning"></div>
         <div class="row">
-            <div class="table-responsive" id="order-table">
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Client</th>
-                        <th scope="col">Caissier</th>
-                        <th scope="col">Montant</th>
-                        <th scope="col">Perçu</th>
-                        <th scope="col">Etat</th>
-                        <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php for($i =1; $i < 100; ++$i):?>
-                        <tr>
-                        <th scope="row"><?= $i ?></th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>
-                            <a href="" class="text-info me-2 infoBtn" title="Voir les détatails"><i class="fas fa-info-circle"></i></a>
-                            <a href="" class="text-primary me-2 infoBtn" title="Modifier"><i class="fas fa-edit"></i></a>
-                            <a href="" class="text-danger me-2 infoBtn" title="Supprimer"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                        </tr>
-                    <?php endfor;?>
-                    </tbody>
-                </table>
+            <div class="table-responsive" id="orderTable">
+                <h3 class="text-center text-success">Chargement des factures</h3>
             </div>
         </div>
     </section>
@@ -131,6 +102,58 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
             <button type="button" class="btn btn-primary" id="create" name="create">Ajoouter <i class="fas fa-plus"></i></button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+     <!-- Modal update -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="updateModalLabel">Modifier facture</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" id="formOrder">
+                <div class="form-floating mb-3">
+                    <input type="text" name="customer" id="customerUpdate" class="form-control">
+                    <label for="customerUpdate">Nom du client</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="cashier" id="cashierUpdate" class="form-control">
+                    <label for="cashierUpdate">Nom du caissier</label>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="amountUpdate" name="amount">
+                            <label for="amountUpdate">Montant</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="receivedUpdate" name="received">
+                            <label for="receivedUpdate">Montant perçu</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                           <select class="form-control" name="state" id="stateUpdate" aria-label="stateUpdate">
+                                <option value="Facturée">Facturée</option>
+                                <option value="Payée">Payée</option>
+                                <option value="Annulée">Annulée</option>
+                           </select>
+                           <label for="stateUpdate">Etat</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-primary" id="create" name="create">Mettre à jour <i class="fas fa-sync"></i></button>
         </div>
         </div>
     </div>
